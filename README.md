@@ -1,24 +1,21 @@
-# README
+# k8s-rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An learning session in putting Rails on Kubernetes.
 
-Things you may want to cover:
+Objectives:
 
-* Ruby version
+* [ ] Zero-Touch Deployments
 
-* System dependencies
+* [ ] Continuous Delivery
 
-* Configuration
+* [ ] Secure with Secret Handling
 
-* Database creation
+* [ ] Integrated with Rake
 
-* Database initialization
+* [ ] Should handle jobs: cron, and background
 
-* How to run the test suite
+* [ ] Console Ops: Migrations, and REPL
 
-* Services (job queues, cache servers, search engines, etc.)
+* [ ] Easy to update
 
-* Deployment instructions
-
-* ...
+* [ ] Elastic :smiling_imp:
