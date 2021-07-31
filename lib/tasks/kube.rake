@@ -27,6 +27,22 @@ namespace :kube do
 
     # Apply our Deployment component
     apply "#{Rails.root}/config/kube/deployment.yml"
+
+    # Add the load balancer:
+    apply 'https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/cloud/deploy.yaml'
+
+    # Add our own ingres specifications
+    apply "#{Rails.root}/config/kube/ingress.yml"
+
+    # Install cert-manager
+    kubectl 'create namespace cert-manager'
+    apply 'https://github.com/jetstack/cert-manager/releases/download/v1.4.1/cert-manager.yaml'
+
+    # Add our certificate
+    apply "#{Rails.root}/config/kube/certificate.yml"
+
+    # Add the certificate issuer
+    apply "#{Rails.root}/config/kube/cluster-issuer.yml"
   end
 
   def kubectl(command)
