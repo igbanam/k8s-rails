@@ -6,7 +6,7 @@ Objectives:
 
 * [ ] Zero-Touch Deployments
 
-* [ ] Continuous Delivery
+* [x] Continuous Delivery — with [GHCR](https://ghcr.io)
 
 * [ ] Secure with Secret Handling
 
@@ -16,6 +16,6 @@ Objectives:
 
 * [x] Console Ops: Migrations, and REPL
 
-* [ ] Easy to update
+* [x] Easy to update
 
 * [ ] Elastic :smiling_imp:
