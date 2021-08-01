@@ -10,11 +10,11 @@ Objectives:
 
 * [ ] Secure with Secret Handling
 
-* [ ] Integrated with Rake
+* [x] Integrated with Rake
 
 * [ ] Should handle jobs: cron, and background
 
-* [ ] Console Ops: Migrations, and REPL
+* [x] Console Ops: Migrations, and REPL
 
 * [ ] Easy to update
 
