@@ -58,6 +58,11 @@ namespace :kube do
     exec 'kubectl logs -f -l app=k8s-rails --all-containers'
   end
 
+  desc 'Open a session to a pod on the cluster'
+  task :shell do
+    exec "kubectl exec -it #{find_first_pod_name} -- bash"
+  end
+
   def kubectl(command)
     puts `kubectl #{command}`
   end
@@ -68,5 +73,9 @@ namespace :kube do
     else
       kubectl "apply -f #{configuration}"
     end
+  end
+
+  def find_first_pod_name
+    `kubectl get pods|grep k8s-rails-deployment|awk '{print $1}'|head -n 1`.to_s.strip
   end
 end
