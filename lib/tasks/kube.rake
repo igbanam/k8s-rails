@@ -53,6 +53,11 @@ namespace :kube do
     apply "#{Rails.root}/config/kube/job-migrate.yml"
   end
 
+  desc 'Tail log files from our app running in the cluster'
+  task :logs do
+    exec 'kubectl logs -f -l app=k8s-rails --all-containers'
+  end
+
   def kubectl(command)
     puts `kubectl #{command}`
   end
