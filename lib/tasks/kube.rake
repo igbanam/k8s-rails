@@ -43,6 +43,14 @@ namespace :kube do
 
     # Add the certificate issuer
     apply "#{Rails.root}/config/kube/cluster-issuer.yml"
+
+    # Add the auto-scaler
+    apply "#{Rails.root}/config/kube/autoscaler.yml"
+  end
+
+  desc 'Run migrations from Kube'
+  task :migrate do
+    apply "#{Rails.root}/config/kube/job-migrate.yml"
   end
 
   def kubectl(command)
