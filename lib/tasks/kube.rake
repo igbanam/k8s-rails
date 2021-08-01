@@ -63,6 +63,16 @@ namespace :kube do
     exec "kubectl exec -it #{find_first_pod_name} -- bash"
   end
 
+  desc 'Runs a command in the server'
+  task :run, [:command] => [:environment] do |_, args|
+    kubectl "exec -it #{find_first_pod_name} echo $(#{args[:command]})"
+  end
+
+  desc 'Run rails console on a pod'
+  task :console do
+    system "kubectl exec -it #{find_first_pod_name} bundle exec rails console"
+  end
+
   def kubectl(command)
     puts `kubectl #{command}`
   end
