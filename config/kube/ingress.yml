@@ -6,6 +6,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
+  tls:
+  - hosts:
+    - $DNS_WEBSITE
+    secretName: k8s-rails-tls
   defaultBackend:
     service:
       name: k8s-rails-service
