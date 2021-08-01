@@ -68,6 +68,11 @@ namespace :kube do
     kubectl "exec -it #{find_first_pod_name} echo $(#{args[:command]})"
   end
 
+  desc 'Print the environment variables'
+  task :config do
+    system "kubectl exec -it #{find_first_pod_name} printenv | sort"
+  end
+
   desc 'Run rails console on a pod'
   task :console do
     system "kubectl exec -it #{find_first_pod_name} bundle exec rails console"
